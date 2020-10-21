@@ -22,6 +22,8 @@ import numbers
 import os
 import time
 
+from memory_profiler import profile
+
 try:
     import requests
 except ImportError as caught_exc:  # pragma: NO COVER
@@ -148,6 +150,7 @@ class Request(transport.Request):
 
         self.session = session
 
+    @profile
     def __call__(
         self,
         url,
